@@ -44,7 +44,7 @@ DOC_SOURCES = {
     ]
 }
 
-# ✅ Correct project-based path
+# Correct project-based path
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(BASE_DIR, "data", "raw_docs")
 
@@ -53,7 +53,7 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 print("Saving files to:", OUTPUT_DIR)
 
 
-# 🔹 Function to scrape a single page
+# Function to scrape a single page
 def scrape_page(url):
     try:
         headers = {
@@ -91,14 +91,14 @@ def scrape_page(url):
         return "", []
 
 
-# 🔹 Main function
+# Main function
 def main():
     print("Script started...\n")
 
     all_docs = []
 
     for name, urls in DOC_SOURCES.items():
-        print(f"\n📘 Processing {name}...")
+        print(f"\nProcessing {name}...")
 
         full_text = ""
         all_codes = []
@@ -132,7 +132,7 @@ def main():
     with open(combined_path, "w", encoding="utf-8") as f:
         json.dump(all_docs, f, indent=2)
 
-    print("\n✅ All docs scraped successfully!")
+    print("\nAll docs scraped successfully!")
 
 
 if __name__ == "__main__":

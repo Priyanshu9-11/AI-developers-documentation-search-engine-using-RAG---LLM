@@ -2,7 +2,7 @@ import os
 import json
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-# ✅ Paths
+# Paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW_DIR = os.path.join(BASE_DIR, "data", "raw_docs")
 PROCESSED_DIR = os.path.join(BASE_DIR, "data", "processed_chunks")
@@ -14,7 +14,7 @@ print("Files in raw_docs:", os.listdir(RAW_DIR))
 print("Saving to:", PROCESSED_DIR)
 
 
-# 🔹 Chunking function
+# Chunking function
 def chunk_document(text, codes, source):
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=800,
@@ -30,14 +30,14 @@ def chunk_document(text, codes, source):
             "chunk_id": f"{source}_{i}",
             "source": source,
             "text": chunk,
-            "codes": codes  # keep all codes for now (we improve later)
+            "codes": codes  
         })
 
     return processed_chunks
 
 
 def main():
-    print("\n🚀 Starting chunking...\n")
+    print("\nStarting chunking...\n")
 
     total_chunks = 0
 
@@ -46,14 +46,14 @@ def main():
         if ".json" not in file:
             continue
 
-        print(f"\n📄 Processing file: {file}")
+        print(f"\nProcessing file: {file}")
 
         file_path = os.path.join(RAW_DIR, file)
 
         with open(file_path, "r", encoding="utf-8") as f:
             data = json.load(f)
 
-        # 🔥 CASE 1: LIST format
+        # CASE 1: LIST format
         if isinstance(data, list):
 
             print(f"Detected LIST with {len(data)} items")
@@ -67,7 +67,7 @@ def main():
                 print(f"Text length: {len(text)}")
 
                 if not text.strip():
-                    print("⚠️ Skipping empty text")
+                    print("Skipping empty text")
                     continue
 
                 chunks = chunk_document(text, codes, source)
@@ -81,7 +81,7 @@ def main():
 
                 total_chunks += len(chunks)
 
-        # 🔥 CASE 2: DICT format
+        # CASE 2: DICT format
         elif isinstance(data, dict):
 
             source = data.get("source", "unknown")
@@ -92,7 +92,7 @@ def main():
             print(f"Text length: {len(text)}")
 
             if not text.strip():
-                print("⚠️ Skipping empty text")
+                print("Skipping empty text")
                 continue
 
             chunks = chunk_document(text, codes, source)
@@ -107,9 +107,9 @@ def main():
             total_chunks += len(chunks)
 
         else:
-            print("⚠️ Unknown format, skipping file")
+            print(" Unknown format, skipping file")
 
-    print(f"\n✅ Total chunks created: {total_chunks}")
+    print(f"\nTotal chunks created: {total_chunks}")
 
 if __name__ == "__main__":
     main()

@@ -9,7 +9,7 @@ OUTPUT_DIR = os.path.join(BASE_DIR, "data", "final_chunks")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
-# 🔹 Simple keyword-based matching
+#  Simple keyword-based matching
 def is_relevant(chunk, code):
     chunk_words = set(chunk.lower().split())
     code_words = set(code.lower().split())
@@ -54,13 +54,13 @@ def process_file(file):
 
 
 def main():
-    print("🚀 Starting smart code mapping...\n")
+    print("Starting smart code mapping...\n")
 
     for file in os.listdir(CHUNKS_DIR):
         if file.endswith(".json"):
             process_file(file)
 
-    print("\n✅ Done! Smart chunks ready.")
+    print("\nDone! Smart chunks ready.")
 
 
 if __name__ == "__main__":
