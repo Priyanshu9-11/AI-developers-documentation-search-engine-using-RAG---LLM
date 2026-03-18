@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sentence-transformers
+faiss-cpu
+langchain
+openai
+streamlit
+beautifulsoup4
+requests
