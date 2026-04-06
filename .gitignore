@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual env
+venv/
+env/
+
+# Data (VERY IMPORTANT)
+data/raw_docs/
+data/processed_chunks/
+
+# Vector DB (can be regenerated)
+vector_store/index.faiss
+vector_store/chunks_metadata.json
+
+# API keys / secrets
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
