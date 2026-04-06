@@ -53,22 +53,22 @@ git clone <your-repo-link>
 cd AI-developers-documentation-search-engine
 ```
 
-# Install dependencies
+### Install dependencies
 pip install -r requirements.txt
 
-# Run Ollama (IMPORTANT)
+### Run Ollama (IMPORTANT)
 ollama run mistral
 
-# Run the app
+### Run the app
 streamlit run app.py
 
-# Example Queries
+### Example Queries
 How to define a function in Python?
 What is NumPy array?
 How to build API in FastAPI?
 
 
-# How it Works
+### How it Works
 Scrapes documentation from multiple sources
 Splits into chunks
 Converts text → embeddings
@@ -78,13 +78,13 @@ Sends context to LLM
 Generates final answer
 
 
-# Future Improvements
+### Future Improvements
 Add PDF/document upload
 Improve ranking (reranker)
 Add code highlighting
 Deploy on cloud
 
 
-# Author
+## Author
 Priyanshu Bilwane
 
