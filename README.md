@@ -51,6 +51,7 @@ AI-developers-documentation-search-engine/
 ```bash
 git clone <your-repo-link>
 cd AI-developers-documentation-search-engine
+```
 
 # Install dependencies
 pip install -r requirements.txt
